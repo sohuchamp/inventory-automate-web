@@ -11,24 +11,20 @@
     --card:#16161c;
     --ink:#e9e9ef;
     --muted:#a6a6b3;
-    --accent:#b99cff; /* soft purple like the button in the screenshot */
+    --accent:#b99cff;
     --accent-2:#5c58ff;
     --stroke:#252532;
     --chip:#20202a;
-    --success:#2bd99f;
     --shadow: 0 10px 30px rgba(0,0,0,.35);
-    --radius:16px;
   }
   *{box-sizing:border-box}
-  html,body{height:100%}
   body{
     margin:0;
     font:16px/1.4 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     color:var(--ink);
     background: radial-gradient(1200px 900px at 20% -10%, #1a1a22 0%, #0d0d10 60%) fixed, var(--bg);
   }
-
-  /* --- Top bar --- */
+  /* top bar */
   .topbar{
     position:sticky; top:0; z-index:10;
     backdrop-filter:saturate(120%) blur(8px);
@@ -38,261 +34,193 @@
   .topbar-inner{
     max-width:1100px; margin:auto; padding:14px 18px; display:flex; gap:12px; align-items:center; justify-content:space-between;
   }
-  .brand{
-    display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px;
-  }
-  .brand .chev{opacity:.7; transform:translateY(1px)}
+  .brand{display:flex; gap:10px; align-items:center; font-weight:700;}
   .update-btn{
-    display:inline-flex; align-items:center; gap:10px; padding:10px 16px;
-    background:var(--accent); color:#1a1533; border:none; border-radius:999px; font-weight:700;
-    box-shadow: 0 6px 18px rgba(185,156,255,.35);
-    cursor:pointer;
+    display:inline-flex; gap:10px; align-items:center;
+    padding:9px 16px; border-radius:999px; border:0;
+    background:var(--accent); color:#1a1533; font-weight:700; cursor:pointer;
+    box-shadow:0 6px 18px rgba(185,156,255,.35);
   }
-  .top-actions{display:flex; align-items:center; gap:12px;}
   .icon-btn{
-    width:38px; height:38px; display:grid; place-items:center; border:1px solid var(--stroke);
-    background:var(--panel); border-radius:12px; cursor:pointer;
+    width:38px; height:38px; display:grid; place-items:center;
+    background:var(--panel); border:1px solid var(--stroke); border-radius:12px;
   }
-
-  /* --- Toolbar --- */
+  .user{
+    display:flex; gap:6px; align-items:center; background:var(--panel);
+    border:1px solid var(--stroke); border-radius:12px; padding:6px 10px;
+  }
+  /* toolbar */
   .toolbar{
     max-width:1100px; margin:10px auto 0; padding:0 18px 18px; display:grid; gap:14px;
   }
   .search-and-tabs{display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center;}
   .search{
-    display:flex; align-items:center; gap:10px; padding:10px 14px;
-    background:var(--panel); border:1px solid var(--stroke); border-radius:14px; color:var(--muted);
+    display:flex; gap:10px; align-items:center; background:var(--panel);
+    border:1px solid var(--stroke); border-radius:14px; padding:10px 14px;
+  }
+  .search input{
+    background:transparent; border:0; outline:none; color:var(--ink);
   }
   .segmented{
-    display:inline-flex; padding:6px; background:var(--panel); border:1px solid var(--stroke); border-radius:14px;
+    display:inline-flex; background:var(--panel); border:1px solid var(--stroke); border-radius:14px; padding:6px;
   }
   .segmented button{
-    border:0; background:transparent; color:var(--muted); padding:8px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+    border:0; background:transparent; color:var(--muted); padding:8px 14px; border-radius:10px; font-weight:600; cursor:pointer;
   }
   .segmented button.active{
-    background:#1f1f28; color:var(--ink);
-    box-shadow: inset 0 0 0 1px #2a2a38;
+    background:#1f1f28; color:var(--ink); box-shadow: inset 0 0 0 1px #2a2a38;
   }
-  .filters{
-    display:flex; gap:14px; flex-wrap:wrap; align-items:center;
-  }
+  .filters{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
   .chip{
-    display:inline-flex; align-items:center; gap:10px; padding:10px 12px; background:var(--chip);
-    border:1px solid var(--stroke); border-radius:12px; color:var(--ink); cursor:pointer;
+    display:inline-flex; gap:8px; align-items:center; background:var(--chip); border:1px solid var(--stroke);
+    border-radius:12px; padding:8px 12px; cursor:pointer;
   }
-  .chip .muted{color:var(--muted)}
   .spacer{flex:1}
-
-  /* --- Grid --- */
+  /* grid */
   .grid{
     max-width:1100px; margin:0 auto 110px; padding:0 18px 30px;
-    display:grid; gap:18px;
-    grid-template-columns: repeat( auto-fill, minmax(240px, 1fr) );
+    display:grid; gap:18px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
   .card{
-    background:var(--card); border:1px solid var(--stroke); border-radius:18px; overflow:hidden; box-shadow: var(--shadow);
+    background:var(--card); border:1px solid var(--stroke); border-radius:18px; overflow:hidden; box-shadow:var(--shadow);
   }
   .thumb{
-    aspect-ratio: 1.1 / 1; background:
-      radial-gradient(600px 300px at 30% -10%, #23232d 0%, #14141b 60%),
-      linear-gradient(180deg, #1e1e27, #121218);
-    position:relative; display:flex; align-items:center; justify-content:center;
+    aspect-ratio:1.1/1;
+    background:radial-gradient(500px 300px at 30% -10%, #23232d 0%, #14141b 60%), linear-gradient(180deg,#1e1e27,#121218);
+    position:relative; display:flex; justify-content:center; align-items:center;
   }
-  .thumb img{max-width:86%; max-height:86%; object-fit:contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,.35))}
   .badge{
-    position:absolute; top:10px; left:10px; padding:6px 10px; border-radius:999px;
-    background:rgba(38,38,54,.7); border:1px solid var(--stroke); color:var(--muted); font-size:12px; font-weight:700;
-    backdrop-filter: blur(4px);
+    position:absolute; top:10px; left:10px; background:rgba(24,24,32,.7); border:1px solid rgba(255,255,255,.05);
+    border-radius:999px; padding:5px 10px; font-size:12px; color:var(--ink);
   }
-  .thumb .corner{
-    position:absolute; top:10px; right:10px; display:flex; gap:8px;
-  }
+  .thumb .corner{position:absolute; top:10px; right:10px; display:flex; gap:8px;}
   .ghost-btn{
-    width:36px; height:36px; display:grid; place-items:center; border:1px solid var(--stroke);
-    background:rgba(20,20,28,.85); border-radius:12px; cursor:pointer;
+    width:34px; height:34px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.09);
+    background:rgba(15,15,18,.8); border-radius:12px; cursor:pointer;
   }
-  .meta{
-    display:flex; align-items:center; justify-content:space-between; padding:12px 14px;
-  }
-  .meta .date{font-weight:800; letter-spacing:.3px}
-  .meta .dots{opacity:.7}
   .empty-placeholder{
     width:52%; height:52%; border:2px dashed #2a2a39; border-radius:14px; display:grid; place-items:center; color:var(--muted);
   }
-
-  /* --- Snackbar tip --- */
+  .meta{display:flex; justify-content:space-between; align-items:center; padding:12px 14px;}
+  .muted{color:var(--muted);}
+  /* snackbar */
   .snackbar{
     position:fixed; left:50%; transform:translateX(-50%); bottom:92px;
-    padding:14px 18px; background:#1a1a22; border:1px solid var(--stroke); border-radius:16px; display:flex; gap:12px; align-items:center; box-shadow: var(--shadow);
+    background:#1a1a22; border:1px solid var(--stroke); border-radius:16px; padding:14px 18px; display:flex; gap:12px; align-items:center; box-shadow:var(--shadow);
   }
-
-  /* --- FAB --- */
+  /* fab */
   .fab{
-    position:fixed; right:20px; bottom:20px; width:74px; height:74px; border-radius:24px; display:grid; place-items:center; cursor:pointer;
-    color:#fff; border:none;
+    position:fixed; right:20px; bottom:20px; width:74px; height:74px; border-radius:24px; border:0;
     background: radial-gradient(120% 120% at 30% 20%, var(--accent) 0%, var(--accent-2) 70%);
-    box-shadow: 0 20px 40px rgba(92,88,255,.4), inset 0 0 40px rgba(255,255,255,.1);
+    box-shadow: 0 20px 40px rgba(92,88,255,.4), inset 0 0 40px rgba(255,255,255,.08);
+    display:grid; place-items:center; color:#fff; font-size:36px; cursor:pointer;
   }
-  .fab:active{transform:translateY(1px)}
-  .fab span{font-size:36px; line-height:0}
-
-  /* Small tweaks */
-  .muted{color:var(--muted)}
-  .caps{letter-spacing:.24px; text-transform:capitalize}
-  .user{
-    display:flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--stroke); background:var(--panel); border-radius:12px;
+  /* banner we show for upload/result */
+  #scan-banner{
+    position:fixed; top:74px; left:50%; transform:translateX(-50%);
+    background:#1a1a22; border:1px solid #303046; padding:10px 16px; border-radius:12px;
+    color:#fff; z-index:9999; display:none;
   }
-
-  @media (max-width: 560px){
-    .search-and-tabs{grid-template-columns:1fr}
-    .snackbar{left:16px; right:16px; transform:none}
+  @media(max-width:560px){
+    .search-and-tabs{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <strong style="font-size:22px">Inventory Automate</strong>
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="top-actions">
-        <button class="update-btn" onclick="alert('Updater coming soon')">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 2.64-6.36l-.14.14M3 4v4h4" stroke="#1a1533" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Update App
-        </button>
-        <div class="icon-btn" title="Notifications">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2c0 .53-.21 1.04-.59 1.41L4 17h5" stroke="#cfcfe6" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <div class="user">
-          <span class="muted">Tyler</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 10l4 4 4-4" stroke="#a6a6b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span style="font-size:22px">Inventory Automate</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-  </header>
-
-  <!-- Toolbar -->
-  <section class="toolbar">
-    <div class="search-and-tabs">
-      <div class="search">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#a6a6b3" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="#a6a6b3" stroke-width="2" stroke-linecap="round"/></svg>
-        <input id="searchInput" placeholder="Search bottles, scans, notes…" style="flex:1; background:transparent; border:0; color:var(--ink); outline:none" oninput="filterCards()">
+    <div style="display:flex; gap:12px; align-items:center;">
+      <button class="update-btn">Update App</button>
+      <div class="icon-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2c0 .53-.21 1.04-.59 1.41L4 17h5" stroke="#cfcfe6" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
-      <div class="segmented" role="tablist" aria-label="View">
-        <button class="active" id="tab-captures" onclick="setTab('captures')">Captures</button>
-        <button id="tab-albums" onclick="setTab('albums')">Albums</button>
-      </div>
-    </div>
-
-    <div class="filters">
-      <div class="chip"><strong>Filter</strong>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="margin-left:6px"><path d="M4 7h16M7 12h10M10 17h4" stroke="#a6a6b3" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <div class="chip">Creators
+      <div class="user">
+        <span class="muted">Tyler</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 10l4 4 4-4" stroke="#a6a6b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <div class="chip">↓ <span class="muted">Created</span></div>
-      <div class="chip">Select</div>
-      <div class="spacer"></div>
     </div>
-  </section>
-
-  <!-- Grid -->
-  <main class="grid" id="grid">
-    <!-- Example card 1 -->
-    <article class="card" data-title="Backbar Fridge – Full Scan" data-date="2024-09-05">
-      <div class="thumb">
-        <span class="badge">AR • Ready</span>
-        <div class="corner">
-          <button class="ghost-btn" title="Download">
-            <!-- cloud -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M7 15a4 4 0 1 1 .8-7.92A5 5 0 0 1 19 10a3 3 0 0 1-.1 6H7z" stroke="#d7d7e8" stroke-width="1.8"/>
-              <path d="M12 8v7m0 0l-3-3m3 3l3-3" stroke="#d7d7e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <button class="ghost-btn" title="More">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.8" fill="#d7d7e8"/><circle cx="12" cy="12" r="1.8" fill="#d7d7e8"/><circle cx="19" cy="12" r="1.8" fill="#d7d7e8"/></svg>
-          </button>
-        </div>
-        <!-- placeholder image -->
-        <div class="empty-placeholder">Preview</div>
-      </div>
-      <div class="meta">
-        <div>
-          <div class="date">Sep 5</div>
-          <div class="muted caps" style="font-size:12px">Backbar • 78 bottles</div>
-        </div>
-        <svg class="dots" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="2" fill="#a6a6b3"/><circle cx="12" cy="12" r="2" fill="#a6a6b3"/><circle cx="19" cy="12" r="2" fill="#a6a6b3"/></svg>
-      </div>
-    </article>
-
-    <!-- Repeatable bottle cards -->
-    <script>
-      const scans = [
-        {title:"Whiskey – Single Bottle", dateLabel:"Jul 31"},
-        {title:"Baileys – Single Bottle", dateLabel:"Jul 31"},
-        {title:"House Vodka – Single Bottle", dateLabel:"Jul 31"},
-        {title:"Jägermeister – Single Bottle", dateLabel:"Jul 31"},
-        {title:"Olive Oil? (test)", dateLabel:"Jul 31"},
-      ];
-      function cardHTML(t, d){
-        return `
-        <article class="card" data-title="${t}" data-date="2024-07-31">
-          <div class="thumb">
-            <span class="badge">3D</span>
-            <div class="corner">
-              <button class="ghost-btn" title="Download">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 15a4 4 0 1 1 .8-7.92A5 5 0 0 1 19 10a3 3 0 0 1-.1 6H7z" stroke="#d7d7e8" stroke-width="1.8"/>
-                  <path d="M12 8v7m0 0l-3-3m3 3l3-3" stroke="#d7d7e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <button class="ghost-btn" title="More">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.8" fill="#d7d7e8"/><circle cx="12" cy="12" r="1.8" fill="#d7d7e8"/><circle cx="19" cy="12" r="1.8" fill="#d7d7e8"/></svg>
-              </button>
-            </div>
-            <div class="empty-placeholder">Bottle</div>
-          </div>
-          <div class="meta">
-            <div>
-              <div class="date">${d}</div>
-              <div class="muted caps" style="font-size:12px">${t}</div>
-            </div>
-            <svg class="dots" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="2" fill="#a6a6b3"/><circle cx="12" cy="12" r="2" fill="#a6a6b3"/><circle cx="19" cy="12" r="2" fill="#a6a6b3"/></svg>
-          </div>
-        </article>`;
-      }
-      document.addEventListener('DOMContentLoaded', ()=>{
-        const grid = document.getElementById('grid');
-        scans.forEach(s => grid.insertAdjacentHTML('beforeend', cardHTML(s.title, s.dateLabel)));
-      });
-    </script>
-  </main>
-
-  <!-- Snackbar / tip -->
-  <div class="snackbar" id="tip">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="3" stroke="#cfcfe6" stroke-width="2"/><path d="M8 10h8" stroke="#cfcfe6" stroke-width="2" stroke-linecap="round"/></svg>
-    <div>Long press to open the most recent capture mode</div>
   </div>
+</header>
 
-  <!-- FAB -->
-  <button class="fab" title="New capture (AR)" onclick="startScan()">
-    <span>＋</span>
-  </button>
+<section class="toolbar">
+  <div class="search-and-tabs">
+    <div class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#a6a6b3" stroke-width="2"></circle><path d="M20 20l-3.5-3.5" stroke="#a6a6b3" stroke-width="2" stroke-linecap="round" /></svg>
+      <input id="searchInput" placeholder="Search bottles, scans, notes…" oninput="filterCards()">
+    </div>
+    <div class="segmented">
+      <button class="active" id="tab-captures" onclick="setTab('captures')">Captures</button>
+      <button id="tab-albums" onclick="setTab('albums')">Albums</button>
+    </div>
+  </div>
+  <div class="filters">
+    <div class="chip">Filter</div>
+    <div class="chip">Creators</div>
+    <div class="chip">↓ Created</div>
+    <div class="chip">Select</div>
+    <div class="spacer"></div>
+  </div>
+</section>
+
+<main class="grid" id="grid">
+  <!-- example static card -->
+  <article class="card" data-title="Backbar Fridge – Full Scan" data-date="2024-09-05">
+    <div class="thumb">
+      <span class="badge">AR • Ready</span>
+      <div class="corner">
+        <button class="ghost-btn" title="Download">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M7 15a4 4 0 1 1 .8-7.92A5 5 0 0 1 19 10a3 3 0 0 1-.1 6H7z" stroke="#d7d7e8" stroke-width="1.6"/>
+            <path d="M12 8v7m0 0l-3-3m3 3l3-3" stroke="#d7d7e8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="ghost-btn" title="More">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.8" fill="#d7d7e8"/><circle cx="12" cy="12" r="1.8" fill="#d7d7e8"/><circle cx="19" cy="12" r="1.8" fill="#d7d7e8"/></svg>
+        </button>
+      </div>
+      <div class="empty-placeholder">Preview</div>
+    </div>
+    <div class="meta">
+      <div>
+        <div style="font-weight:700;">Sep 5</div>
+        <div class="muted" style="font-size:12px;">Backbar • 78 bottles</div>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="2" fill="#a6a6b3"/><circle cx="12" cy="12" r="2" fill="#a6a6b3"/><circle cx="19" cy="12" r="2" fill="#a6a6b3"/></svg>
+    </div>
+  </article>
+</main>
+
+<!-- tip -->
+<div class="snackbar" id="tip">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="3" stroke="#cfcfe6" stroke-width="2"/><path d="M8 10h8" stroke="#cfcfe6" stroke-width="2" stroke-linecap="round"/></svg>
+  <div>Long press to open the most recent capture mode</div>
+</div>
+
+<!-- hidden file input -->
+<input type="file" id="scan-file-input" accept="image/*" style="display:none" />
+
+<!-- banner -->
+<div id="scan-banner"></div>
+
+<!-- FAB -->
+<button class="fab" onclick="startScan()">
+  <span>＋</span>
+</button>
 
 <script>
-  // Tab toggling (visual only for now)
+  // hide tip
+  setTimeout(()=>{ const t=document.getElementById('tip'); if(t) t.style.display='none'; }, 5000);
+
   function setTab(name){
     document.getElementById('tab-captures').classList.toggle('active', name==='captures');
     document.getElementById('tab-albums').classList.toggle('active', name==='albums');
-    // In a real app, you’d swap the grid content here.
   }
 
-  // Simple client-side filter
   function filterCards(){
     const q = document.getElementById('searchInput').value.toLowerCase();
     document.querySelectorAll('.card').forEach(c=>{
@@ -301,13 +229,99 @@
     });
   }
 
-  // Placeholder hook for AR capture
+  // FAB → file picker
   function startScan(){
-    alert('AR bottle scan goes here.\\n\\nHook into WebXR / model-viewer or your native bridge to begin capture.\\nYou can also open a file dialog as a fallback.');
+    const inp = document.getElementById('scan-file-input');
+    if (inp) inp.click();
   }
 
-  // Hide the tip after a few seconds
-  setTimeout(()=>{ const t=document.getElementById('tip'); t && (t.style.display='none'); }, 5000);
+  // listen for image upload
+  const fileInput = document.getElementById('scan-file-input');
+  if (fileInput){
+    fileInput.addEventListener('change', async (e)=>{
+      const file = e.target.files[0];
+      if (!file) return;
+
+      showScanBanner("Uploading image… (dummy)");
+      // fake "backend" delay
+      await new Promise(r => setTimeout(r, 600));
+
+      // our "backend CSV"
+      const csv = createDummyCSV();
+      downloadCSV(csv, "inventory-scan.csv");
+
+      // add a card so UI shows history
+      addScanCardToGrid({
+        title: "Dummy scan • 5 Jack Daniel's bottles",
+        dateLabel: "Just now",
+        count: 5
+      });
+
+      showScanBanner("Scan complete — CSV downloaded");
+
+      // allow re-upload of same file later
+      e.target.value = "";
+    });
+  }
+
+  // creates a fixed CSV as if the backend returned it
+  function createDummyCSV(){
+    const rows = [
+      ["sku", "name", "count"],
+      ["jack-daniels-old-no-7", "Jack Daniel's Old No. 7", "5"]
+    ];
+    return rows.map(r => r.map(x => `"${x.replace(/"/g, '""')}"`).join(",")).join("\r\n");
+  }
+
+  // triggers a download in the browser
+  function downloadCSV(csvString, filename){
+    const blob = new Blob([csvString], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 1000);
+  }
+
+  function addScanCardToGrid(scan){
+    const grid = document.getElementById('grid');
+    const html = `
+      <article class="card" data-title="${scan.title}" data-date="now">
+        <div class="thumb">
+          <span class="badge">CSV • ready</span>
+          <div class="corner">
+            <button class="ghost-btn" title="Download CSV again" onclick="downloadCSV(createDummyCSV(), 'inventory-scan.csv')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M7 15a4 4 0 1 1 .8-7.92A5 5 0 0 1 19 10a3 3 0 0 1-.1 6H7z" stroke="#d7d7e8" stroke-width="1.6"/>
+                <path d="M12 8v7m0 0l-3-3m3 3l3-3" stroke="#d7d7e8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="empty-placeholder">${scan.count} bottles</div>
+        </div>
+        <div class="meta">
+          <div>
+            <div style="font-weight:700;">${scan.dateLabel}</div>
+            <div class="muted" style="font-size:12px">${scan.title}</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="2" fill="#a6a6b3"/><circle cx="12" cy="12" r="2" fill="#a6a6b3"/><circle cx="19" cy="12" r="2" fill="#a6a6b3"/></svg>
+        </div>
+      </article>
+    `;
+    grid.insertAdjacentHTML('afterbegin', html);
+  }
+
+  function showScanBanner(text){
+    const el = document.getElementById("scan-banner");
+    el.textContent = text;
+    el.style.display = "block";
+    clearTimeout(el._hide);
+    el._hide = setTimeout(()=>{ el.style.display="none"; }, 3500);
+  }
 </script>
+
 </body>
 </html>
